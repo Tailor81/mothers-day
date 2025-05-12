@@ -267,10 +267,11 @@ body {
     color: #444;
     margin-bottom: 20px;
     text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.05);
+    flex: 1;
 }
 
 .story-image {
-    width: 100%;
+    width: 45%;
     height: 350px;
     margin: 20px 0;
     border-radius: 20px;
@@ -283,6 +284,7 @@ body {
     align-items: center;
     justify-content: center;
     border: 1px solid rgba(255, 182, 193, 0.3);
+    flex-shrink: 0;
 }
 
 .story-image::before {
@@ -300,9 +302,8 @@ body {
 .story-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: scale-down;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 15px;
     border-radius: 15px;
 }
 
@@ -595,6 +596,7 @@ body {
 
     .story-container {
         padding: 1rem;
+        margin: 0.5rem;
     }
 
     .story-section {
@@ -608,21 +610,29 @@ body {
         gap: 2rem;
     }
 
+    .story-content p {
+        font-size: 1.2em;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+
+    .story-image {
+        width: 100%;
+        max-width: 100%;
+        height: 300px;
+        margin: 1rem auto;
+        order: -1;
+    }
+
     .story-section h2 {
         font-size: 2em;
         text-align: center;
+        margin-top: 1rem;
     }
 
     .story-section h2::after {
         left: 50%;
         transform: translateX(-50%);
-    }
-
-    .story-image {
-        width: 100%;
-        max-width: 350px;
-        height: 280px;
-        margin: 20px auto;
     }
 
     .action-buttons {
@@ -631,6 +641,11 @@ body {
 
     .action-button {
         width: 100%;
+    }
+
+    .story-image img {
+        max-width: 85%;
+        max-height: 85%;
     }
 }
 
@@ -648,7 +663,7 @@ body {
     }
 
     .envelope {
-        margin: 1rem;
+        margin: 0.5rem;
         padding: 1rem;
     }
 
@@ -658,17 +673,46 @@ body {
 
     .story-section {
         padding: 20px;
+        margin-bottom: 30px;
     }
 
     .story-section h2 {
         font-size: 1.8em;
+        margin-top: 0.5rem;
     }
 
     .story-content p {
         font-size: 1.1em;
+        line-height: 1.6;
     }
 
     .story-image {
         height: 250px;
+        margin: 0.5rem auto;
     }
+
+    .story-image img {
+        max-width: 80%;
+        max-height: 80%;
+    }
+}
+
+/* Add smooth scrolling for better mobile experience */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Improve touch targets for mobile */
+.story-section {
+    touch-action: manipulation;
+}
+
+/* Optimize image loading for mobile */
+.story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0;
+    border-radius: 15px;
 } 
