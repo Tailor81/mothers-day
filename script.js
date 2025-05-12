@@ -31,14 +31,39 @@ function showSection(index) {
     currentSection = index;
 }
 
-// Begin button click handler
-beginBtn.addEventListener('click', () => {
-    showSection(1);
-    startStorybook();
-});
-
 // Music control
 let isMusicPlaying = false;
+
+// Function to handle music playback
+async function handleMusicPlayback() {
+    try {
+        // Set volume to 50%
+        bgMusic.volume = 0.5;
+        
+        // Try to play the music
+        const playPromise = bgMusic.play();
+        
+        if (playPromise !== undefined) {
+            await playPromise;
+            isMusicPlaying = true;
+            musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+        }
+    } catch (error) {
+        // If autoplay is blocked, show the music button
+        console.log('Autoplay prevented:', error);
+        musicToggle.style.display = 'block';
+    }
+}
+
+// Attempt to play music when the page loads
+document.addEventListener('DOMContentLoaded', handleMusicPlayback);
+
+// Also try to play when the user interacts with the page
+document.addEventListener('click', () => {
+    if (!isMusicPlaying) {
+        handleMusicPlayback();
+    }
+}, { once: true });
 
 musicToggle.addEventListener('click', () => {
     if (isMusicPlaying) {
@@ -51,6 +76,16 @@ musicToggle.addEventListener('click', () => {
     isMusicPlaying = !isMusicPlaying;
 });
 
+// Begin button click handler
+beginBtn.addEventListener('click', () => {
+    showSection(1);
+    startStorybook();
+    // Try to play music when user clicks begin
+    if (!isMusicPlaying) {
+        handleMusicPlayback();
+    }
+});
+
 // Storybook animations
 function startStorybook() {
     const observer = new IntersectionObserver((entries) => {
@@ -61,7 +96,7 @@ function startStorybook() {
                     setTimeout(() => {
                         showSection(2);
                         openEnvelope();
-                    }, 2000);
+                    }, 5000);
                 }
             }
         });
