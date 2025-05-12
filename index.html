@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To the One Who Raised Me</title>
+    
+    <!-- Meta tags for social sharing -->
+    <meta property="og:title" content="To the One Who Raised Me">
+    <meta property="og:description" content="A heartfelt Mother's Day digital experience">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <section id="welcome" class="section active">
+        <div class="welcome-content">
+            <h1 class="title">To the One Who Raised Me</h1>
+            <div class="flower-animation"></div>
+            <button id="beginBtn" class="glow-button">Begin</button>
+            <button id="musicToggle" class="music-button">
+                <i class="fas fa-music"></i>
+            </button>
+        </div>
+        <audio id="bgMusic" loop>
+            <source src="music/umama.mp3" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <!-- Storybook Sections -->
+    <section id="storybook" class="section">
+        <div class="story-container">
+            <div class="story-section" data-section="first-steps">
+                <h2>First Steps</h2>
+                <div class="story-content">
+                    <p>You held my hand as I took my first steps...</p>
+                    <div class="story-image"></div>
+                </div>
+            </div>
+
+            <div class="story-section" data-section="bedtime-stories">
+                <h2>Bedtime Stories</h2>
+                <div class="story-content">
+                    <p>Your voice reading stories became my favorite lullaby...</p>
+                    <div class="story-image"></div>
+                </div>
+            </div>
+
+            <div class="story-section" data-section="graduation">
+                <h2>Graduation</h2>
+                <div class="story-content">
+                    <p>Your proud smile lit up the room...</p>
+                    <div class="story-image"></div>
+                </div>
+            </div>
+
+            <div class="story-section" data-section="our-talks">
+                <h2>Our Talks</h2>
+                <div class="story-content">
+                    <p>Those late-night conversations shaped who I am...</p>
+                    <div class="story-image"></div>
+                </div>
+            </div>
+
+            <div class="story-section" data-section="now">
+                <h2>Now</h2>
+                <div class="story-content">
+                    <p>Every day, I'm grateful for your love and guidance...</p>
+                    <div class="story-image"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Letter Section -->
+    <section id="letter" class="section">
+        <div class="envelope">
+            <div class="letter-content">
+                <div class="letter-text">
+                    <!-- Letter content will be typed here -->
+                </div>
+                <div class="signature">
+                    <p>With all my love,</p>
+                    <p class="signature-name">Your Child</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Finale Section -->
+    <section id="finale" class="section">
+        <div class="finale-content">
+            <h2 class="finale-title">Happy Mother's Day</h2>
+            <p class="love-message">I Love You</p>
+            <div class="final-message">
+                <p>Thank you for being the most amazing mother in the world.</p>
+                <p>Your love and guidance have made me who I am today.</p>
+                <p>Forever grateful, forever yours.</p>
+            </div>
+        </div>
+        <div id="confetti"></div>
+    </section>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html> 
